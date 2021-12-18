@@ -19,12 +19,15 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "i2c.h"
 #include "tim.h"
 #include "gpio.h"
-#include "lcd_hd44780_lib.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdio.h>
+#include "oursbmp280.cpp"
+#include "lcd_hd44780_lib.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -56,6 +59,10 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+float pressure, temperature, humidity;
+
+uint8_t size;
+uint8_t Data[256];
 /* USER CODE END 0 */
 
 /**
@@ -87,17 +94,44 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_TIM7_Init();
-	LCD_Initialize();
-	LCD_WriteText((uint8_t*)"Bielecki Mrozek");
-	LCD_WriteTextXY((uint8_t*)"Pleszku", 0, 1);
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
+  LCD_Initialize();
+  //LCD_WriteText((uint8_t*)"Bielecki Mrozek");
+  //LCD_WriteTextXY((uint8_t*)"Pleszku", 0, 1);
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  BMP280 bmp(&hi2c1, BMP280_I2C_ADDRESS_0);
+  uint8_t chipId;
+  while (!bmp.Init(&chipId))
+  {
+    LCD_WriteText(&chipId);
+    HAL_Delay(2000);
+    LCD_Clear();
+  }
+  bool bme280p = chipId == BMP280_CHIP_ID;
+  LCD_WriteText((uint8_t *)(bme280p ? "BME280" : "BMP280"));
   while (1)
   {
+    HAL_Delay(100);
+    /*while (!bmp280_read_float(&bmp280, &temperature, &pressure, &humidity)) {
+			LCD_WriteText((uint8_t*)"reading failed");
+			HAL_Delay(2000);
+		}*/
+    while (!bmp.ReadValues(&temperature, &pressure, &humidity))
+    {
+      LCD_WriteText((uint8_t *)"reading failed");
+      HAL_Delay(2000);
+    }
+    LCD_Clear();
+    size = sprintf((char *)Data, "%.2fhPa", pressure / 100);
+    LCD_WriteTextXY((uint8_t *)Data, 0, 1);
+    size = sprintf((char *)Data, "%.2fC %.2f%%", temperature, humidity);
+    LCD_WriteTextXY((uint8_t *)Data, 0, 0);
+    HAL_Delay(2000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -134,8 +168,7 @@ void SystemClock_Config(void)
   }
   /** Initializes the CPU, AHB and APB buses clocks
   */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
@@ -169,7 +202,7 @@ void Error_Handler(void)
   /* USER CODE END Error_Handler_Debug */
 }
 
-#ifdef  USE_FULL_ASSERT
+#ifdef USE_FULL_ASSERT
 /**
   * @brief  Reports the name of the source file and the source line number
   *         where the assert_param error has occurred.

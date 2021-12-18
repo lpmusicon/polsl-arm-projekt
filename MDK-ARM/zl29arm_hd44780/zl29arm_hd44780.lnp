@@ -1,14 +1,17 @@
 --cpu Cortex-M3
 "zl29arm_hd44780\startup_stm32f107xc.o"
+"zl29arm_hd44780\lcd_hd44780_lib.o"
+"zl29arm_hd44780\bmp280.o"
 "zl29arm_hd44780\main.o"
 "zl29arm_hd44780\gpio.o"
+"zl29arm_hd44780\i2c.o"
 "zl29arm_hd44780\tim.o"
 "zl29arm_hd44780\stm32f1xx_it.o"
 "zl29arm_hd44780\stm32f1xx_hal_msp.o"
-"zl29arm_hd44780\lcd_hd44780_lib.o"
+"zl29arm_hd44780\oursbmp280.o"
+"zl29arm_hd44780\system_stm32f1xx.o"
 "zl29arm_hd44780\stm32f1xx_hal_gpio_ex.o"
-"zl29arm_hd44780\stm32f1xx_hal_tim.o"
-"zl29arm_hd44780\stm32f1xx_hal_tim_ex.o"
+"zl29arm_hd44780\stm32f1xx_hal_i2c.o"
 "zl29arm_hd44780\stm32f1xx_hal.o"
 "zl29arm_hd44780\stm32f1xx_hal_rcc.o"
 "zl29arm_hd44780\stm32f1xx_hal_rcc_ex.o"
@@ -19,8 +22,9 @@
 "zl29arm_hd44780\stm32f1xx_hal_flash.o"
 "zl29arm_hd44780\stm32f1xx_hal_flash_ex.o"
 "zl29arm_hd44780\stm32f1xx_hal_exti.o"
-"zl29arm_hd44780\system_stm32f1xx.o"
+"zl29arm_hd44780\stm32f1xx_hal_tim.o"
+"zl29arm_hd44780\stm32f1xx_hal_tim_ex.o"
 --strict --scatter "zl29arm_hd44780\zl29arm_hd44780.sct"
---summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "zl29arm_hd44780.map" -o zl29arm_hd44780\zl29arm_hd44780.axf

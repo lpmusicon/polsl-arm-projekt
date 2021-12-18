@@ -57,8 +57,8 @@ void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOE, LED_1_Pin|LED_2_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOD, LED_EXT_1_Pin|LED_EXT_2_Pin|LED_EXT_3_Pin|LED_EXT_4_Pin
-                          |LED_EXT_5_Pin|LED_EXT_6_Pin|LED_EXT_7_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_0|LED_EXT_1_Pin|LED_EXT_2_Pin|LED_EXT_3_Pin
+                          |LED_EXT_4_Pin|LED_EXT_5_Pin|LED_EXT_6_Pin|LED_EXT_7_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : PEPin PEPin PEPin PEPin
                            PEPin PEPin PEPin PEPin */
@@ -76,10 +76,8 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PBPin PBPin PBPin PBPin
-                           PBPin */
-  GPIO_InitStruct.Pin = SW_EXT_4_Pin|SW_EXT_2_Pin|SW_EXT_6_Pin|SW_EXT_5_Pin
-                          |SW_EXT_3_Pin;
+  /*Configure GPIO pins : PBPin PBPin PBPin PBPin */
+  GPIO_InitStruct.Pin = SW_EXT_4_Pin|SW_EXT_2_Pin|SW_EXT_6_Pin|SW_EXT_3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
@@ -100,10 +98,10 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PDPin PDPin PDPin PDPin
-                           PDPin PDPin PDPin */
-  GPIO_InitStruct.Pin = LED_EXT_1_Pin|LED_EXT_2_Pin|LED_EXT_3_Pin|LED_EXT_4_Pin
-                          |LED_EXT_5_Pin|LED_EXT_6_Pin|LED_EXT_7_Pin;
+  /*Configure GPIO pins : PD0 PDPin PDPin PDPin
+                           PDPin PDPin PDPin PDPin */
+  GPIO_InitStruct.Pin = GPIO_PIN_0|LED_EXT_1_Pin|LED_EXT_2_Pin|LED_EXT_3_Pin
+                          |LED_EXT_4_Pin|LED_EXT_5_Pin|LED_EXT_6_Pin|LED_EXT_7_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

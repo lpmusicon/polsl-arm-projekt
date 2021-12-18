@@ -122,8 +122,6 @@ void Error_Handler(void);
 #define LED_EXT_6_GPIO_Port GPIOD
 #define LED_EXT_7_Pin GPIO_PIN_7
 #define LED_EXT_7_GPIO_Port GPIOD
-#define SW_EXT_5_Pin GPIO_PIN_5
-#define SW_EXT_5_GPIO_Port GPIOB
 #define SW_EXT_3_Pin GPIO_PIN_9
 #define SW_EXT_3_GPIO_Port GPIOB
 #define LCD_D0_Pin GPIO_PIN_0

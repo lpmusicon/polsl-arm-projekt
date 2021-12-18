@@ -565,11 +565,12 @@ ARM Macro Assembler    Page 9
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=zl29arm_hd44780\startup_stm32f107xc.d -ozl29arm_hd44780\startup_st
-m32f107xc.o -IC:\Users\oem1\Desktop\arm\polsl-arm-projekt\MDK-ARM\RTE -IC:\Keil
-_arm_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include -IC:\Keil_arm_v5\ARM\PACK
-\Keil\STM32F1xx_DFP\2.1.0\Device\Include --predefine="__UVISION_VERSION SETA 52
-0" --predefine="_RTE_ SETA 1" --predefine="STM32F10X_CL SETA 1" --list=startup_
-stm32f107xc.lst startup_stm32f107xc.s
+m32f107xc.o -I.\RTE\_zl29arm_hd44780 -IC:\Users\Grzegorz\AppData\Local\Arm\Pack
+s\ARM\CMSIS\5.8.0\CMSIS\Core\Include -IC:\Users\Grzegorz\AppData\Local\Arm\Pack
+s\Keil\STM32F1xx_DFP\2.4.0\Device\Include --predefine="__EVAL SETA 1" --predefi
+ne="__UVISION_VERSION SETA 536" --predefine="_RTE_ SETA 1" --predefine="STM32F1
+0X_CL SETA 1" --predefine="_RTE_ SETA 1" --list=startup_stm32f107xc.lst startup
+_stm32f107xc.s
 
 
 
@@ -1475,4 +1476,4 @@ Symbol: __use_two_region_memory
       None
 Comment: __use_two_region_memory unused
 3 symbols
-427 symbols in table
+428 symbols in table
