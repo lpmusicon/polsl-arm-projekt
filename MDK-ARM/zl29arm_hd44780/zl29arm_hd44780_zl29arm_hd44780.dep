@@ -32,7 +32,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x61BCBA84)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x61BCBA84)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x61BCBA84)
 F (..\zl29_arm_hd44780\lcd_hd44780_lib.h)(0x61BCB99F)()
-F (../Src/main.c)(0x61C1D682)(--cpp -c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_zl29arm_hd44780-IC:\Users\Grzegorz\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\Grzegorz\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_CL -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F107xC-o zl29arm_hd44780\main.o --omf_browse zl29arm_hd44780\main.crf --depend zl29arm_hd44780\main.d)
+F (../Src/main.c)(0x61C25E2F)(--cpp -c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_zl29arm_hd44780-IC:\Users\Grzegorz\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\Grzegorz\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_CL -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F107xC-o zl29arm_hd44780\main.o --omf_browse zl29arm_hd44780\main.crf --depend zl29arm_hd44780\main.d)
 I (../Src/main.h)(0x61BCB99F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x61BCBA84)
 I (../Inc/stm32f1xx_hal_conf.h)(0x61BCE9E0)
@@ -66,7 +66,7 @@ I (../Inc/main.h)(0x61BCE9E0)
 I (../Inc/tim.h)(0x61BCE9E0)
 I (../Inc/gpio.h)(0x61BCE9E0)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602585E4)
-I (../Src/bmp280.cpp)(0x61C1DD83)
+I (../Inc/DriverBMP280.hpp)(0x61C26210)
 I (../Src/lcd_hd44780_lib.h)(0x61BCB99F)
 F (../Src/gpio.c)(0x61BCE9E0)(--c99 -c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_zl29arm_hd44780-IC:\Users\Grzegorz\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\Grzegorz\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_CL -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F107xC-o zl29arm_hd44780\gpio.o --omf_browse zl29arm_hd44780\gpio.crf --depend zl29arm_hd44780\gpio.d)
 I (../Inc/gpio.h)(0x61BCE9E0)
@@ -217,7 +217,8 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h)(0x61BCBA84)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x61BCBA84)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x61BCBA84)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x61BCBA84)
-F (..\Src\bmp280.cpp)(0x61C1DD83)(--cpp -c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_zl29arm_hd44780-IC:\Users\Grzegorz\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\Grzegorz\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_CL -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F107xC-o zl29arm_hd44780\bmp280.o --omf_browse zl29arm_hd44780\bmp280.crf --depend zl29arm_hd44780\bmp280.d)
+F (..\Src\DriverBMP280.cpp)(0x61C2620F)(--cpp -c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_zl29arm_hd44780-IC:\Users\Grzegorz\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\Grzegorz\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_CL -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F107xC-o zl29arm_hd44780\driverbmp280.o --omf_browse zl29arm_hd44780\driverbmp280.crf --depend zl29arm_hd44780\driverbmp280.d)
+I (../Inc/DriverBMP280.hpp)(0x61C26210)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x61BCBA84)
 I (../Inc/stm32f1xx_hal_conf.h)(0x61BCE9E0)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x61BCBA84)
@@ -245,6 +246,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h)(0x61BCBA84)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x61BCBA84)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x61BCBA84)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x61BCBA84)
+F (..\Inc\DriverBMP280.hpp)(0x61C26210)()
 F (../Src/system_stm32f1xx.c)(0x61BCB99F)(--c99 -c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_zl29arm_hd44780-IC:\Users\Grzegorz\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\Grzegorz\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_CL -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F107xC-o zl29arm_hd44780\system_stm32f1xx.o --omf_browse zl29arm_hd44780\system_stm32f1xx.crf --depend zl29arm_hd44780\system_stm32f1xx.d)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x61BCBA84)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f107xc.h)(0x61BCBA84)

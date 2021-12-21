@@ -33,5 +33,5 @@ zl29arm_hd44780\main.o: ../Inc/main.h
 zl29arm_hd44780\main.o: ../Inc/tim.h
 zl29arm_hd44780\main.o: ../Inc/gpio.h
 zl29arm_hd44780\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-zl29arm_hd44780\main.o: ../Src/bmp280.cpp
+zl29arm_hd44780\main.o: ../Inc/DriverBMP280.hpp
 zl29arm_hd44780\main.o: ../Src/lcd_hd44780_lib.h

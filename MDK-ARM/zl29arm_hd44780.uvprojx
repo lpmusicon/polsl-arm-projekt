@@ -485,9 +485,14 @@
               <FilePath>../Src/stm32f1xx_hal_msp.c</FilePath>
             </File>
             <File>
-              <FileName>bmp280.cpp</FileName>
+              <FileName>DriverBMP280.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\Src\bmp280.cpp</FilePath>
+              <FilePath>..\Src\DriverBMP280.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>DriverBMP280.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\DriverBMP280.hpp</FilePath>
             </File>
           </Files>
         </Group>

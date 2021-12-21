@@ -26,7 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
-#include "bmp280.cpp"
+#include "DriverBMP280.hpp"
 #include "lcd_hd44780_lib.h"
 /* USER CODE END Includes */
 
@@ -105,20 +105,14 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	#define BMP280_I2C_ADDRESS 0x76
-  BMP280 bmp(&hi2c1, BMP280_I2C_ADDRESS);
-  uint8_t chipId;
-  while (!bmp.Init(&chipId))
-  {
-    LCD_WriteText(&chipId);
-    HAL_Delay(2000);
-    LCD_Clear();
-  }
-  bool bme280p = chipId == BMP280_CHIP_ID;
-  LCD_WriteText((uint8_t *)(bme280p ? "BME280" : "BMP280"));
+  DriverBMP280 bmp(&hi2c1, BMP280_I2C_ADDRESS);
+	
+  while (!bmp.Init());
+	
   while (1)
   {
     HAL_Delay(100);
-    while (!bmp.ReadValues(&temperature, &pressure, &humidity))
+    while (!bmp.ReadValues(temperature, pressure, humidity))
     {
       LCD_WriteText((uint8_t *)"reading failed");
       HAL_Delay(2000);
