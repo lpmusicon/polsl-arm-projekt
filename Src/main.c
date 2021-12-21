@@ -26,7 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
-#include "oursbmp280.cpp"
+#include "bmp280.cpp"
 #include "lcd_hd44780_lib.h"
 /* USER CODE END Includes */
 
@@ -104,7 +104,8 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  BMP280 bmp(&hi2c1, BMP280_I2C_ADDRESS_0);
+	#define BMP280_I2C_ADDRESS 0x76
+  BMP280 bmp(&hi2c1, BMP280_I2C_ADDRESS);
   uint8_t chipId;
   while (!bmp.Init(&chipId))
   {

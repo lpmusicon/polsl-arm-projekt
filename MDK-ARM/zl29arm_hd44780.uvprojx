@@ -485,9 +485,9 @@
               <FilePath>../Src/stm32f1xx_hal_msp.c</FilePath>
             </File>
             <File>
-              <FileName>oursbmp280.cpp</FileName>
+              <FileName>bmp280.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\Src\oursbmp280.cpp</FilePath>
+              <FilePath>..\Src\bmp280.cpp</FilePath>
             </File>
           </Files>
         </Group>

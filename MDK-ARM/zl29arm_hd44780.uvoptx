@@ -310,8 +310,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Src\oursbmp280.cpp</PathWithFileName>
-      <FilenameWithoutPath>oursbmp280.cpp</FilenameWithoutPath>
+      <PathWithFileName>..\Src\bmp280.cpp</PathWithFileName>
+      <FilenameWithoutPath>bmp280.cpp</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
