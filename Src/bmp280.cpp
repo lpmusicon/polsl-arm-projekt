@@ -27,12 +27,12 @@ class BMP280
 public:
     BMP280(I2C_HandleTypeDef *hi2c, uint16_t deviceAddress) : p_hi2c(hi2c), m_DeviceAddress(deviceAddress << 1) {}
     
-		bool Init(uint8_t* chipId)
+	bool Init(uint8_t* chipId)
     {
 		if (!WriteData(BMP280_REG_RESET, BMP280_RESET_VALUE, 1))
 		{
 			return false;
-    }
+    	}
 		
 		if (!ReadData(BMP280_REG_ID, chipId, 1))
 		{
@@ -41,10 +41,9 @@ public:
 		
 		while (1) {
 		uint8_t status;
-		if (ReadData(BMP280_REG_STATUS, &status, 1)
-				&& (status & 1) == 0)
+		if (ReadData(BMP280_REG_STATUS, &status, 1) && (status & 1) == 0)
 			break;
-	}
+		}
 		
 		if(!ReadCalibrationData()) {
 			return false;
@@ -53,7 +52,7 @@ public:
 		if (!WriteData(0xF5, ( 3 << 5 | 0 << 2 ), 1))
 		{
 			return false;
-    }
+    	}
 		
 		if (!WriteData(0xF2, 3, 1)) {
 			return false;
@@ -75,34 +74,35 @@ public:
             return false;
         }
 
-			int32_t temp = data[3] << 12 | data[4] << 4 | data[5] >> 4;
-				int32_t press = data[0] << 12 | data[1] << 4 | data[2] >> 4;
-			int32_t fine_temp;
-        *temperature = CompensateTemperature(temp, &fine_temp) / 100.0f;
-        *pressure = CompensatePressure(press, fine_temp) / 256.0;
-			int32_t hum = data[6] << 8 | data[7];
-        *humidity = CompensateHumidity(hum, fine_temp) / 1024.0;
+		int32_t t_fine;
+		int32_t temp = data[3] << 12 | data[4] << 4 | data[5] >> 4;
+		int32_t press = data[0] << 12 | data[1] << 4 | data[2] >> 4;
+		int32_t hum = data[6] << 8 | data[7];
+        
+		*temperature = CompensateTemperature(temp, &t_fine) / 100.0f;
+        *pressure = CompensatePressure(press, t_fine) / 256.0;
+        *humidity = CompensateHumidity(hum, t_fine) / 1024.0;
 
         return true;
     }
-		
-		int32_t CompensateTemperature(int32_t rawTemperature, int32_t* fine_temp) {
+
+		int32_t CompensateTemperature(int32_t adc_temp, int32_t* t_fine) {
 	int32_t var1, var2;
 
-	var1 = ((((rawTemperature >> 3) - ((int32_t) m_calibrationData.dig_T1 << 1)))
+	var1 = ((((adc_temp >> 3) - ((int32_t) m_calibrationData.dig_T1 << 1)))
 			* (int32_t) m_calibrationData.dig_T2) >> 11;
-	var2 = (((((rawTemperature >> 4) - (int32_t) m_calibrationData.dig_T1)
-			* ((rawTemperature >> 4) - (int32_t) m_calibrationData.dig_T1)) >> 12)
+	var2 = (((((adc_temp >> 4) - (int32_t) m_calibrationData.dig_T1)
+			* ((adc_temp >> 4) - (int32_t) m_calibrationData.dig_T1)) >> 12)
 			* (int32_t) m_calibrationData.dig_T3) >> 14;
 
-	*fine_temp = var1 + var2;
-	return (*fine_temp * 5 + 128) >> 8;
+	*t_fine = var1 + var2;
+	return (*t_fine * 5 + 128) >> 8;
 }
 		
-uint32_t CompensatePressure(int32_t adc_press, int32_t fine_temp) {
+uint32_t CompensatePressure(int32_t adc_press, int32_t t_fine) {
 	int64_t var1, var2, p;
 
-	var1 = (int64_t) fine_temp - 128000;
+	var1 = (int64_t) t_fine - 128000;
 	var2 = var1 * var1 * (int64_t) m_calibrationData.dig_P6;
 	var2 = var2 + ((var1 * (int64_t) m_calibrationData.dig_P5) << 17);
 	var2 = var2 + (((int64_t) m_calibrationData.dig_P4) << 35);
@@ -123,10 +123,10 @@ uint32_t CompensatePressure(int32_t adc_press, int32_t fine_temp) {
 	return p;
 }
 
-uint32_t CompensateHumidity(int32_t adc_hum, int32_t fine_temp) {
+uint32_t CompensateHumidity(int32_t adc_hum, int32_t t_fine) {
 	int32_t v_x1_u32r;
 
-	v_x1_u32r = fine_temp - (int32_t) 76800;
+	v_x1_u32r = t_fine - (int32_t) 76800;
 	v_x1_u32r = ((((adc_hum << 14) - ((int32_t) m_calibrationData.dig_H4 << 20)
 			- ((int32_t) m_calibrationData.dig_H5 * v_x1_u32r)) + (int32_t) 16384) >> 15)
 			* (((((((v_x1_u32r * (int32_t) m_calibrationData.dig_H6) >> 10)
@@ -192,7 +192,7 @@ struct BMP280_Calibration_Data
 		bool ReadCalibrationData()
 		{
 			uint16_t h4, h5;
-				if(ReadData(0x88, &m_calibrationData.dig_T1) 
+				if(ReadData(BMP280_REG_HUM_CALIB, &m_calibrationData.dig_T1) 
 					&& ReadData(0x8a, (uint16_t *)&m_calibrationData.dig_T2) 
 					&& ReadData(0x8c, (uint16_t *)&m_calibrationData.dig_T3)
 				&& ReadData(0x8e, &m_calibrationData.dig_P1)

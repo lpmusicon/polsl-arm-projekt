@@ -60,8 +60,6 @@ void SystemClock_Config(void);
 /* USER CODE BEGIN 0 */
 
 float pressure, temperature, humidity;
-
-uint8_t size;
 uint8_t Data[256];
 /* USER CODE END 0 */
 
@@ -97,8 +95,10 @@ int main(void)
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
   LCD_Initialize();
-  //LCD_WriteText((uint8_t*)"Bielecki Mrozek");
-  //LCD_WriteTextXY((uint8_t*)"Pleszku", 0, 1);
+  LCD_WriteTextXY((uint8_t*)"Projekt; Plech", 0, 0);
+  LCD_WriteTextXY((uint8_t*)"Bielecki Mrozek", 0, 1);
+  HAL_Delay(3000);
+
 
   /* USER CODE END 2 */
 
@@ -117,19 +117,15 @@ int main(void)
   while (1)
   {
     HAL_Delay(100);
-    /*while (!bmp280_read_float(&bmp280, &temperature, &pressure, &humidity)) {
-			LCD_WriteText((uint8_t*)"reading failed");
-			HAL_Delay(2000);
-		}*/
     while (!bmp.ReadValues(&temperature, &pressure, &humidity))
     {
       LCD_WriteText((uint8_t *)"reading failed");
       HAL_Delay(2000);
     }
     LCD_Clear();
-    size = sprintf((char *)Data, "%.2fhPa", pressure / 100);
+    sprintf((char *)Data, "%.2fhPa", pressure / 100);
     LCD_WriteTextXY((uint8_t *)Data, 0, 1);
-    size = sprintf((char *)Data, "%.2fC %.2f%%", temperature, humidity);
+    sprintf((char *)Data, "%.2fC %.2f%%", temperature, humidity);
     LCD_WriteTextXY((uint8_t *)Data, 0, 0);
     HAL_Delay(2000);
     /* USER CODE END WHILE */
