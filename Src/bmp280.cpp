@@ -49,22 +49,25 @@ public:
 			return false;
 		}
 		
+		// Measurement Params
 		if (!WriteData(0xF5, ( 3 << 5 | 0 << 2 ), 1))
 		{
 			return false;
     	}
 		
+		// Pressure Params
 		if (!WriteData(0xF2, 3, 1)) {
 			return false;
 		}
 		
+		// Start Measuremens
 		if (!WriteData(0xF4, ( 3 | 3 << 5 | 3 << 2 ), 1))
 		{
 			return false;
-    }
+    	}
 		
 		return true;
-		}
+	}
     bool ReadValues(float *temperature, float *pressure, float *humidity)
     {
         uint8_t data[8];
