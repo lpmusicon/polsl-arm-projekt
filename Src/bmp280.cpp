@@ -189,7 +189,7 @@ private:
 			ReadData(0x96,  reinterpret_cast<uint8_t *>(&m_calibrationData.dig_P5), 2) && 
 			ReadData(0x98,  reinterpret_cast<uint8_t *>(&m_calibrationData.dig_P6), 2) && 
 			ReadData(0x9a,  reinterpret_cast<uint8_t *>(&m_calibrationData.dig_P7), 2) && 
-			ReadData(0x9c, reinterpret_cast<uint8_t *>( &m_calibrationData.dig_P8), 2) && 
+			ReadData(0x9c,  reinterpret_cast<uint8_t *>(&m_calibrationData.dig_P8), 2) && 
 			ReadData(0x9e,  reinterpret_cast<uint8_t *>(&m_calibrationData.dig_P9), 2) && 
 			ReadData(0xa1, &m_calibrationData.dig_H1, 1) && 
 			ReadData(0xe1, reinterpret_cast<uint8_t *>(&m_calibrationData.dig_H2), 2) && 
