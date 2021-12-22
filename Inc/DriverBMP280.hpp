@@ -47,7 +47,7 @@ private:
 	// Metoda sluzaca do odczytu pamieci czujnika
     bool ReadData(uint8_t registerAddress, uint8_t* value, size_t size);
 
-	// Metoda sluzaca do odczytu pamieci czujnika
+	// Metoda sluzaca do zapisu do pamieci czujnika
     bool WriteData(uint8_t registerAddress, uint8_t value, size_t size);
 
 	// Metoda pobierajaca dane kalibracyjne z czujnika 
