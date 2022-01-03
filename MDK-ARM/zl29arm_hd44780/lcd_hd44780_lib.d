@@ -1,7 +1,7 @@
-zl29arm_hd44780\lcd_hd44780_lib.o: ..\zl29_arm_hd44780\lcd_hd44780_lib.c
-zl29arm_hd44780\lcd_hd44780_lib.o: ..\zl29_arm_hd44780\lcd_hd44780_lib.h
+zl29arm_hd44780\lcd_hd44780_lib.o: ..\Src\lcd_hd44780_lib.c
+zl29arm_hd44780\lcd_hd44780_lib.o: ../Inc/lcd_hd44780_lib.h
 zl29arm_hd44780\lcd_hd44780_lib.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-zl29arm_hd44780\lcd_hd44780_lib.o: ..\zl29_arm_hd44780\main.h
+zl29arm_hd44780\lcd_hd44780_lib.o: ../Inc/main.h
 zl29arm_hd44780\lcd_hd44780_lib.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 zl29arm_hd44780\lcd_hd44780_lib.o: ../Inc/stm32f1xx_hal_conf.h
 zl29arm_hd44780\lcd_hd44780_lib.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h

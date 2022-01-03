@@ -1,5 +1,5 @@
 zl29arm_hd44780\stm32f1xx_hal_msp.o: ../Src/stm32f1xx_hal_msp.c
-zl29arm_hd44780\stm32f1xx_hal_msp.o: ../Src/main.h
+zl29arm_hd44780\stm32f1xx_hal_msp.o: ../Inc/main.h
 zl29arm_hd44780\stm32f1xx_hal_msp.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 zl29arm_hd44780\stm32f1xx_hal_msp.o: ../Inc/stm32f1xx_hal_conf.h
 zl29arm_hd44780\stm32f1xx_hal_msp.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h

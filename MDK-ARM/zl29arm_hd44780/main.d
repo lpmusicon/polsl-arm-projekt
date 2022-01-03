@@ -1,5 +1,5 @@
 zl29arm_hd44780\main.o: ../Src/main.c
-zl29arm_hd44780\main.o: ../Src/main.h
+zl29arm_hd44780\main.o: ../Inc/main.h
 zl29arm_hd44780\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 zl29arm_hd44780\main.o: ../Inc/stm32f1xx_hal_conf.h
 zl29arm_hd44780\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
@@ -29,9 +29,8 @@ zl29arm_hd44780\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 zl29arm_hd44780\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 zl29arm_hd44780\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 zl29arm_hd44780\main.o: ../Inc/i2c.h
-zl29arm_hd44780\main.o: ../Inc/main.h
 zl29arm_hd44780\main.o: ../Inc/tim.h
 zl29arm_hd44780\main.o: ../Inc/gpio.h
 zl29arm_hd44780\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 zl29arm_hd44780\main.o: ../Inc/DriverBMP280.hpp
-zl29arm_hd44780\main.o: ../Src/lcd_hd44780_lib.h
+zl29arm_hd44780\main.o: ../Inc/lcd_hd44780_lib.h

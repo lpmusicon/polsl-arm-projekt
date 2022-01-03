@@ -95,7 +95,33 @@ int main(void)
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
   LCD_Initialize();
-  LCD_WriteTextXY((uint8_t*)"Projekt; Plech", 0, 0);
+
+  uint8_t stopien[8] = {
+		0x06,
+		0x09,
+		0x09,
+		0x06,
+		0x00,
+		0x00,
+		0x00,
+		0x00
+	};
+	
+	uint8_t znaczek[8] = {
+		0x1C,
+		0x08,
+		0x0A,
+		0x0A,
+		0x0A,
+		0x08,
+		0x1C,
+		0x00
+	};
+
+  LCD_SetUserChar(0, 1, stopien);
+  LCD_SetUserChar(1, 1, znaczek);
+
+	LCD_WriteTextXY((uint8_t*)"Projekt; Plech", 0, 0);
   LCD_WriteTextXY((uint8_t*)"Bielecki Mrozek", 0, 1);
   HAL_Delay(3000);
 
@@ -106,8 +132,10 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 	#define BMP280_I2C_ADDRESS 0x76
   DriverBMP280 bmp(&hi2c1, BMP280_I2C_ADDRESS);
-	
-  while (!bmp.Init());
+  while(!bmp.Init()) {
+		LCD_WriteTextXY((uint8_t *)"Init failed", 0, 0);
+		HAL_Delay(3000);
+	}
 	
   while (1)
   {
@@ -118,10 +146,22 @@ int main(void)
       HAL_Delay(2000);
     }
     LCD_Clear();
-    sprintf((char *)Data, "%.2fhPa", pressure / 100);
+    sprintf((char *)Data, " %.1fhPa", pressure / 100);
     LCD_WriteTextXY((uint8_t *)Data, 0, 1);
-    sprintf((char *)Data, "%.2fC %.2f%%", temperature, humidity);
+    sprintf((char *)Data, " %.1f C  %.1f%%", temperature, humidity);
     LCD_WriteTextXY((uint8_t *)Data, 0, 0);
+		// Stopien
+		LCD_GoTo(5,0);
+		LCD_WriteData(0x00);
+		// Cisnienie
+		LCD_GoTo(0,1);
+		LCD_WriteData(0x01);
+		// Temperatura
+		LCD_GoTo(0,0);
+		LCD_WriteData(0x01);
+		// Wilgotnosc
+		LCD_GoTo(8,0);
+		LCD_WriteData(0x01);
     HAL_Delay(2000);
     /* USER CODE END WHILE */
 

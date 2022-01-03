@@ -394,16 +394,6 @@
           <GroupName>Application/User</GroupName>
           <Files>
             <File>
-              <FileName>lcd_hd44780_lib.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\zl29_arm_hd44780\lcd_hd44780_lib.c</FilePath>
-            </File>
-            <File>
-              <FileName>lcd_hd44780_lib.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\zl29_arm_hd44780\lcd_hd44780_lib.h</FilePath>
-            </File>
-            <File>
               <FileName>main.c</FileName>
               <FileType>8</FileType>
               <FilePath>../Src/main.c</FilePath>
@@ -493,6 +483,16 @@
               <FileName>DriverBMP280.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>..\Inc\DriverBMP280.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>lcd_hd44780_lib.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\lcd_hd44780_lib.h</FilePath>
+            </File>
+            <File>
+              <FileName>lcd_hd44780_lib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\lcd_hd44780_lib.c</FilePath>
             </File>
           </Files>
         </Group>
